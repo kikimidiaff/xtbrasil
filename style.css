@@ -1,0 +1,384 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #0b0f1a;
+  color: #fff;
+}
+
+header {
+  background: linear-gradient(90deg, #111827, #1f2937);
+  padding: 24px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.topo h1 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #22c55e;
+  letter-spacing: 1px;
+}
+
+.topo p {
+  color: #cbd5e1;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+nav button {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #1e293b;
+  color: #fff;
+  font-weight: 700;
+  transition: 0.25s;
+}
+
+nav button:hover,
+nav button.active {
+  background: #22c55e;
+  color: #08110b;
+}
+
+main {
+  padding: 32px 20px;
+}
+
+.section {
+  display: none;
+  animation: fade .25s ease;
+}
+
+.section.active {
+  display: block;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  background: #111827;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+.card h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #cbd5e1;
+  margin-bottom: 22px;
+}
+
+.filtro {
+  margin-bottom: 20px;
+}
+
+select {
+  width: 100%;
+  max-width: 260px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: #0f172a;
+  color: white;
+  font-size: 15px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+th, td {
+  padding: 14px 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+th {
+  background: #0f172a;
+  color: #22c55e;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+}
+
+.gold {
+  color: #facc15;
+  font-weight: 800;
+}
+
+.silver {
+  color: #cbd5e1;
+  font-weight: 800;
+}
+
+.bronze {
+  color: #fb923c;
+  font-weight: 800;
+}
+
+.galeria-resultados {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(320px, 1fr)); /* Duas colunas de tamanho igual */
+  gap: 0px;
+  margin-top: 0px;
+}
+
+.imagem-card {
+  background: #0f172a;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 5px;
+  padding: 10px;
+  overflow: hidden;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px; /* Adiciona um pequeno espaço abaixo da imagem */
+}
+
+.imagem-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 10px; /* Adiciona o espaço entre a imagem e o texto */
+}
+
+/* Estilo do Modo Normal */
+.imagem-card.normal {
+  height: auto; /* Ajusta a altura ao conteúdo */
+}
+
+/* Estilo do Modo Liga */
+.imagem-card.liga {
+  height: auto; /* Ajusta a altura ao conteúdo */
+}
+
+/* Ajuste de alinhamento para horário e data */
+.info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* Espaço entre horário e data */
+  margin-top: 0;
+  padding: 0;
+}
+
+.horario,
+.data {
+  font-size: 14px;
+  color: #cbd5e1;
+  margin: 0;
+  background: none;
+  border: none;
+}
+
+.horario {
+  font-weight: bold;
+}
+
+.data {
+  font-style: italic;
+}
+
+/* Media Queries para tornar o layout responsivo */
+
+/* Dispositivos menores que 768px (tablets e smartphones) */
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .topo h1 {
+    font-size: 24px;
+  }
+
+  .topo p {
+    font-size: 12px;
+  }
+
+  nav button {
+    width: 100%;
+    padding: 14px 20px;
+  }
+
+  .section {
+    padding: 10px;
+  }
+
+  .galeria-resultados {
+    grid-template-columns: 1fr; /* Uma coluna para telas menores */
+    gap: 10px;
+  }
+
+  .imagem-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  table {
+    min-width: 100%;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .filtro {
+    margin-bottom: 15px;
+  }
+
+  .imagem-card {
+    margin-bottom: 15px;
+  }
+}
+
+/* Dispositivos menores que 480px (smartphones) */
+@media (max-width: 480px) {
+  .topo h1 {
+    font-size: 20px;
+  }
+
+  .table-wrap {
+    width: 100%;  /* A tabela vai ocupar toda a largura disponível */
+    max-width: 100%;
+    margin: 0 auto;
+    overflow-x: scroll;  /* Força a barra de rolagem horizontal */
+    -webkit-overflow-scrolling: touch; /* Habilita o scroll suave em dispositivos móveis */
+  }
+
+  table {
+    width: 100%;  /* A tabela ocupa 100% da largura da .table-wrap */
+    min-width: 600px;  /* A tabela tem largura mínima para garantir a rolagem */
+  }
+
+  th, td {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .imagem-card img {
+    object-fit: cover;
+    height: 200px;
+  }
+
+  .section {
+    padding: 8px;
+  }
+}
+/* Estilo para a barra de navegação */
+header {
+  background-color: #000;  /* Cor preta para o cabeçalho */
+  color: #fff;  /* Cor do texto */
+  padding: 20px 0;
+  text-align: center;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+header nav {
+  display: flex;
+}
+
+header .tab-btn {
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+header .tab-btn.active {
+  background-color: #22c55e; /* Verde para botão ativo */
+  color: #08110b;
+}
+
+/* Logo do Brasil */
+.logo-brasil {
+  width: 50px;  /* Ajuste o tamanho da logo conforme necessário */
+  height:50px;
+  margin-right: 10px;
+}
+
+footer a {
+  color: #22c55e;  /* Cor verde para o link */
+  text-decoration: none;  /* Remove o sublinhado */
+}
+
+footer a:hover {
+  text-decoration: underline;  /* Adiciona o sublinhado ao passar o mouse */
+  color: #16a34a;  /* Cor mais escura para o hover */
+}

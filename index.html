@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranking e Resultados</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container topo">
+      <!-- Logo do Brasil e Título -->
+      <img src="./assets/images/logobrasil.png" alt="Logo Brasil" class="logo-brasil" />
+      <h1>XTBRASIL</h1>
+      <p>O sucesso tem espaço apenas para os dedicados.</p>
+
+      <nav>
+        <button class="tab-btn active" data-tab="ranking">RANKING</button>
+        <button class="tab-btn" data-tab="resultados">RESULTADOS</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- RANKING -->
+      <section id="ranking" class="section active">
+        <div class="card">
+          <h2>RANKING SEMANAL - TOP 20º</h2>
+          <p>Atualizado até dia 23/03/2026</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Time</th>
+                  <th>Kills</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody id="ranking-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTADOS -->
+      <section id="resultados" class="section">
+        <div class="card">
+          <h2>RESULTADOS DAS QUEDAS</h2>
+          <p>Selecione o dia e o modo (Normal ou Liga) para visualizar as imagens das tabelas.</p>
+
+          <div class="filtro">
+            <select id="filtroDia"></select>
+            <select id="modoSelecao">
+              <option value="liga">Modo Liga</option>
+              <option value="normal">Modo Normal</option>
+            </select>
+          </div>
+
+          <div id="galeria-resultados" class="galeria-resultados">
+            <!-- Exemplo de imagem com a data e horário fora da imagem -->
+            <div class="imagem-card">
+              <img src="imagens/16H.jpeg" alt="Tabela de resultados" />
+            </div>
+            <div class="info">
+              <p class="horario">Horário: 16:00</p>
+              <p class="data">Data: 23/03/2026</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+  <div class="container">
+    <h5>Segue a gente lá no insta:
+      <a href="https://www.instagram.com/eventos_xtbrasil/" target="_blank"> @eventos_xtbrasil</a> | 
+      <a href="https://www.instagram.com/xtbrasil_ofc/" target="_blank"> @xtbrasil_ofc</a>
+    </h5>
+    <h5>&copy; 2026 XTBRASIL - Todos os direitos reservados.</h5>
+  </div>
+</footer>
+
+  <!-- Vincule o arquivo JS externo -->
+  <script src="script.js"></script>
+</body>
+</html>
