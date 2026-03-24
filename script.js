@@ -63,21 +63,15 @@ const resultadosPorDia = [
   },
   {
     dia: "Quarta-feira",
-    imagens: [
-      
-    ]
+    imagens: []
   },
   {
     dia: "Quinta-feira",
-    imagens: [
-      
-    ]
+    imagens: []
   },
   {
     dia: "Sexta-feira",
-    imagens: [
-      
-    ]
+    imagens: []
   }
 ];
 
@@ -192,6 +186,12 @@ function renderRanking() {
     `;
   });
 }
+
+// Variável para segurar a logo (ajuste o caminho conforme necessário)
+let logoImage = document.querySelector('.logo-brasil');  // Selecionando a logo com a classe correta
+
+// Exemplo de como você pode mudar a logo dinamicamente:
+logoImage.src = "./assets/images/logobrasil.png";  // Atualizando o caminho da logo
 
 // Inicialização
 renderRanking();
