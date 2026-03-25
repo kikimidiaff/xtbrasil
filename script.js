@@ -2,93 +2,68 @@
 const buttons = document.querySelectorAll(".tab-btn");
 const sections = document.querySelectorAll(".section");
 
-// Adicionando evento de clique aos botões
 buttons.forEach(button => {
   button.addEventListener("click", () => {
-    // Removendo a classe 'active' de todos os botões
     buttons.forEach(b => b.classList.remove("active"));
-    // Removendo a classe 'active' de todas as seções
     sections.forEach(s => s.classList.remove("active"));
 
-    // Adicionando a classe 'active' ao botão clicado
     button.classList.add("active");
 
-    // Exibindo a seção correspondente ao botão clicado
     const selectedTab = button.getAttribute("data-tab");
     document.getElementById(selectedTab).classList.add("active");
   });
 });
 
-// Dados de ranking e resultados
+
+// =======================
+// 📊 RANKING (COM SETA MANUAL)
+// =======================
 const rankingData = [
-  { posicao: 1, time: "XR7 SPORTS", pontos: 238, kills: 161 },
-  { posicao: 2, time: "WKD EVOS", pontos: 180, kills: 101 },
-  { posicao: 3, time: "HKS EMU", pontos: 163, kills: 100 },
-  { posicao: 4, time: "BRIOCUDOS", pontos: 132, kills: 84 },
-  { posicao: 5, time: "CTRL C + CTRL V", pontos: 128, kills: 66 },
-  { posicao: 6, time: "LEGENDS", pontos: 127, kills: 81 },
-  { posicao: 7, time: "DRAGON AURA", pontos: 121, kills: 78 },
-  { posicao: 8, time: "EAGLES", pontos: 118, kills: 65 },
-  { posicao: 9, time: "SILENT", pontos: 114, kills: 59 },
-  { posicao: 10, time: "LB3 E-SPORTS", pontos: 103, kills: 64 },
-  { posicao: 11, time: "TROPA 84", pontos: 98, kills: 43 },
-  { posicao: 12, time: "GOD GG", pontos: 93, kills: 43 },
-  { posicao: 13, time: "RUPTURA", pontos: 92, kills: 52 },
-  { posicao: 14, time: "HKS ACADEMY", pontos: 91, kills: 47 },
-  { posicao: 15, time: "ANONYMOUS ELITE", pontos: 90, kills: 63 },
-  { posicao: 16, time: "7VEN GAMING", pontos: 88, kills: 56 },
-  { posicao: 17, time: "ALL GAMES 7VEN", pontos: 86, kills: 52 },
-  { posicao: 18, time: "EAGLES EMU", pontos: 83, kills: 57 },
-  { posicao: 19, time: "K ILL OR DIE", pontos: 83, kills: 56 },
-  { posicao: 20, time: "NZ KINGS", pontos: 68, kills: 50 }
+  { posicao: 1, variacao: "🔼", time: "EAGLES EMU", pontos: 422, kills: 277 },
+  { posicao: 2, variacao: "🔽", time: "XR7 FOXX", pontos: 318, kills: 204 },
+  { posicao: 3, variacao: "➖", time: "HKS EMU", pontos: 241, kills: 150 },
+  { posicao: 4, variacao: "🔼", time: "DRAGON AURA", pontos: 238, kills: 149 },
+  { posicao: 5, variacao: "🔼", time: "WKD EVOS", pontos: 234, kills: 134 },
+  { posicao: 6, variacao: "➖", time: "LEGENDS", pontos: 224, kills: 147 },
+  { posicao: 7, variacao: "🔼", time: "GOD GG", pontos: 210, kills: 107 },
+  { posicao: 8, variacao: "🔼", time: "LB3 E-SPORTS", pontos: 208, kills: 127 },
+  { posicao: 9, variacao: "🔽", time: "CTRL C + CTRL V", pontos: 179, kills: 97 },
+  { posicao: 10, variacao: "🔽", time: "BRIOCUDOS", pontos: 178, kills: 109 },
+  { posicao: 11, variacao: "🔼", time: "HKS ACADEMY", pontos: 171, kills: 86 },
+  { posicao: 12, variacao: "🔼", time: "ALL GAMES 7VEN", pontos: 166, kills: 92 },
+  { posicao: 13, variacao: "🔼", time: "STREET SPORTS", pontos: 164, kills: 96 },
+  { posicao: 14, variacao: "🔽", time: "SILENT", pontos: 162, kills: 85 },
+  { posicao: 15, variacao: "🔼", time: "MAGUINETA", pontos: 158, kills: 98 },
+  { posicao: 16, variacao: "🔽", time: "RUPTURA", pontos: 152, kills: 94 },
+  { posicao: 17, variacao: "🔽", time: "ANONYMOUS ELITE", pontos: 146, kills: 103 },
+  { posicao: 18, variacao: "🔼", time: "K ILL OR DIE", pontos: 144, kills: 94 },
+  { posicao: 19, variacao: "🔼", time: "SHARK E-SPORTS", pontos: 144, kills: 85 },
+  { posicao: 20, variacao: "🔽", time: "EAGLES", pontos: 118, kills: 65 }
 ];
 
-const resultadosPorDia = [
-  {
-    dia: "Segunda-feira",
-    imagens: [
-      { src: "./assets/images/16H.jpeg", horario: "Horário: 16:00", data: "Data: 23/03/2026", tamanho: "liga" },
-      { src: "./assets/images/18H.jpeg", horario: "Horário: 18:00", data: "Data: 23/03/2026", tamanho: "liga" },
-      { src: "./assets/images/19H.jpeg", horario: "Horário: 19:00", data: "Data: 23/03/2026", tamanho: "normal" },
-      { src: "./assets/images/20H.jpeg", horario: "Horário: 20:00", data: "Data: 23/03/2026", tamanho: "liga" },
-      { src: "./assets/images/22H.jpeg", horario: "Horário: 22:00", data: "Data: 23/03/2026", tamanho: "liga" },
-      { src: "./assets/images/22H-n.jpeg", horario: "Horário: 22:00", data: "Data: 23/03/2026", tamanho: "normal" }
-    ]
-  },
-  {
-    dia: "Terça-feira",
-    imagens: [
-      { src: "./assets/images/00H.jpeg", horario: "00:00", data: "24/03/2026", tamanho: "liga" }
-    ]
-  },
-  {
-    dia: "Quarta-feira",
-    imagens: []
-  },
-  {
-    dia: "Quinta-feira",
-    imagens: []
-  },
-  {
-    dia: "Sexta-feira",
-    imagens: []
-  }
-];
 
-// Função para renderizar o ranking
+// =======================
+// 🏆 RENDER RANKING
+// =======================
 function renderRanking() {
   const rankingBody = document.getElementById("ranking-body");
   rankingBody.innerHTML = "";
 
   rankingData.forEach(item => {
     let classe = "";
+
     if (item.posicao === 1) classe = "gold";
     else if (item.posicao === 2) classe = "silver";
     else if (item.posicao === 3) classe = "bronze";
+    else if (item.posicao <= 5) classe = "top-5";
+    else if (item.posicao <= 10) classe = "top-10";
+    else classe = "default";
 
     rankingBody.innerHTML += `
-      <tr>
-        <td class="${classe}">${item.posicao}º</td>
+      <tr class="${classe}">
+        <td class="${classe}">
+          ${item.variacao} ${item.posicao}º
+        </td>
         <td>${item.time}</td>
         <td>${item.pontos}</td>
         <td>${item.kills}</td>
@@ -97,103 +72,118 @@ function renderRanking() {
   });
 }
 
-// Função para preencher o filtro de dias
+
+// =======================
+// 📅 RESULTADOS
+// =======================
+const resultadosPorDia = [
+  {
+    dia: "Segunda-feira",
+    imagens: [
+      { src: "./assets/images/SEG/16H.jpeg", horario: "Horário: 16:00", data: "Data: 23/03/2026", tamanho: "liga" },
+      { src: "./assets/images/SEG/18H.jpeg", horario: "Horário: 18:00", data: "Data: 23/03/2026", tamanho: "liga" },
+      { src: "./assets/images/SEG/19H.jpeg", horario: "Horário: 19:00", data: "Data: 23/03/2026", tamanho: "normal" },
+      { src: "./assets/images/SEG/20H.jpeg", horario: "Horário: 20:00", data: "Data: 23/03/2026", tamanho: "liga" },
+      { src: "./assets/images/SEG/22H.jpeg", horario: "Horário: 22:00", data: "Data: 23/03/2026", tamanho: "liga" },
+      { src: "./assets/images/SEG/22H-n.jpeg", horario: "Horário: 22:00", data: "Data: 23/03/2026", tamanho: "normal" }
+    ]
+  },
+  {
+    dia: "Terça-feira",
+    imagens: [
+      { src: "./assets/images/TER/00H.jpeg", horario: "00:00", data: "24/03/2026", tamanho: "liga" },
+      { src: "./assets/images/TER/16H.png", horario: "16:00", data: "24/03/2026", tamanho: "liga" },
+      { src: "./assets/images/TER/18H.jpeg", horario: "18:00", data: "24/03/2026", tamanho: "liga" },
+      { src: "./assets/images/TER/19H.jpeg", horario: "19:00", data: "24/03/2026", tamanho: "normal" },
+      { src: "./assets/images/TER/20H.jpeg", horario: "20:00", data: "24/03/2026", tamanho: "liga" },
+      { src: "./assets/images/TER/21H.png", horario: "21:00", data: "24/03/2026", tamanho: "liga" },
+      { src: "./assets/images/TER/22H.jpeg", horario: "22:00", data: "24/03/2026", tamanho: "liga" }
+    ]
+  },
+  {
+    dia: "Quarta-feira",
+    imagens: [
+      { src: "./assets/images/QUA/00H.png", horario: "00:00", data: "25/03/2026", tamanho: "liga" }
+    ]
+  },
+  { dia: "Quinta-feira", imagens: [] },
+  { dia: "Sexta-feira", imagens: [] }
+];
+
+
+// =======================
+// 📅 FILTRO DIAS
+// =======================
 function preencherFiltroDias() {
   const filtroDia = document.getElementById("filtroDia");
   filtroDia.innerHTML = "";
 
   resultadosPorDia.forEach((item, index) => {
-    filtroDia.innerHTML += `
-      <option value="${index}">${item.dia}</option>
-    `;
+    filtroDia.innerHTML += `<option value="${index}">${item.dia}</option>`;
   });
 }
 
-// Função para renderizar os resultados de acordo com o dia e modo
+
+// =======================
+// 🖼️ RENDER RESULTADOS
+// =======================
 function renderResultadosPorDia(index, modo) {
-  const galeriaResultados = document.getElementById("galeria-resultados");
-  const diaSelecionado = resultadosPorDia[index];
-  galeriaResultados.innerHTML = "";
+  const galeria = document.getElementById("galeria-resultados");
+  const dia = resultadosPorDia[index];
+  galeria.innerHTML = "";
 
-  if (!diaSelecionado || !diaSelecionado.imagens.length) {
-    galeriaResultados.innerHTML = "<p>Nenhuma imagem cadastrada para este dia.</p>";
+  if (!dia || !dia.imagens.length) {
+    galeria.innerHTML = "<p>Nenhuma imagem cadastrada para este dia.</p>";
     return;
   }
 
-  // Filtrando as imagens com base no modo selecionado
-  let imagensFiltradas;
+  let imagens = modo === "todos"
+    ? dia.imagens
+    : dia.imagens.filter(i => i.tamanho === modo);
 
-  if (modo === "todos") {
-    imagensFiltradas = diaSelecionado.imagens;  // Exibe todas as imagens
-  } else {
-    imagensFiltradas = diaSelecionado.imagens.filter(item => item.tamanho === modo);  // Filtra pela imagem com o modo selecionado
-  }
-
-  if (imagensFiltradas.length === 0) {
-    galeriaResultados.innerHTML = "<p>Nenhuma imagem encontrada para o modo selecionado.</p>";
+  if (!imagens.length) {
+    galeria.innerHTML = "<p>Nenhuma imagem encontrada.</p>";
     return;
   }
 
-  imagensFiltradas.forEach((item, i) => {
-    let modoClasse = item.tamanho === "liga" ? "liga" : "normal";
-
-    galeriaResultados.innerHTML += `
-      <div class="imagem-card ${modoClasse}">
-        <img src="${item.src}" alt="Tabela de resultados ${diaSelecionado.dia} ${i + 1}" />
+  imagens.forEach((item, i) => {
+    galeria.innerHTML += `
+      <div class="imagem-card ${item.tamanho}">
+        <img src="${item.src}" />
         <div class="info">
-          <p class="horario">${item.horario}</p>
-          <p class="data">${item.data}</p>
+          <p>${item.horario}</p>
+          <p>${item.data}</p>
         </div>
       </div>
     `;
   });
 }
 
-// Eventos de interação
+
+// =======================
+// 🎛️ EVENTOS
+// =======================
 document.getElementById("filtroDia").addEventListener("change", (e) => {
-  const modoSelecao = document.getElementById("modoSelecao").value;
-  renderResultadosPorDia(e.target.value, modoSelecao);
+  const modo = document.getElementById("modoSelecao").value;
+  renderResultadosPorDia(e.target.value, modo);
 });
 
 document.getElementById("modoSelecao").addEventListener("change", (e) => {
-  const filtroDia = document.getElementById("filtroDia").value;
-  renderResultadosPorDia(filtroDia, e.target.value);
+  const dia = document.getElementById("filtroDia").value;
+  renderResultadosPorDia(dia, e.target.value);
 });
 
-// Função para renderizar o ranking
-function renderRanking() {
-  const rankingBody = document.getElementById("ranking-body");
-  rankingBody.innerHTML = "";
 
-  rankingData.forEach(item => {
-    let classe = "";
+// =======================
+// 🖼️ LOGO
+// =======================
+let logoImage = document.querySelector('.logo-brasil');
+logoImage.src = "./assets/images/logobrasil.png";
 
-    // Definindo cores para as posições
-    if (item.posicao === 1) classe = "gold";
-    else if (item.posicao === 2) classe = "silver";
-    else if (item.posicao === 3) classe = "bronze";
-    else if (item.posicao <= 5) classe = "top-5"; // Cor para o top 5
-    else if (item.posicao <= 10) classe = "top-10"; // Cor para o top 10
-    else classe = "default"; // Cor padrão para os outros
 
-    rankingBody.innerHTML += `
-      <tr class="${classe}">
-        <td class="${classe}">${item.posicao}º</td>
-        <td>${item.time}</td>
-        <td>${item.pontos}</td>
-        <td>${item.kills}</td>
-      </tr>
-    `;
-  });
-}
-
-// Variável para segurar a logo (ajuste o caminho conforme necessário)
-let logoImage = document.querySelector('.logo-brasil');  // Selecionando a logo com a classe correta
-
-// Exemplo de como você pode mudar a logo dinamicamente:
-logoImage.src = "./assets/images/logobrasil.png";  // Atualizando o caminho da logo
-
-// Inicialização
+// =======================
+// 🚀 INIT
+// =======================
 renderRanking();
 preencherFiltroDias();
-renderResultadosPorDia(0, "liga");  // Inicializa com o modo "liga"
+renderResultadosPorDia(0, "liga");
